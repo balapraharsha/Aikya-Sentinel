@@ -1,0 +1,1 @@
+{"version":3,"file":"patternMatchResult.d.ts","sourceRoot":"","sources":["../../../src/generated/types/patternMatchResult.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAEnD,MAAM,WAAW,kBAAkB;IACjC,QAAQ,EAAE,MAAM,CAAC;IACjB,eAAe,EAAE,YAAY,EAAE,CAAC;IAChC,eAAe,EAAE,MAAM,CAAC;IACxB,UAAU,EAAE,MAAM,CAAC;CACpB"}

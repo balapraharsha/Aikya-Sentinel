@@ -1,0 +1,1 @@
+{"version":3,"file":"digitalTwinResult.d.ts","sourceRoot":"","sources":["../../../src/generated/types/digitalTwinResult.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,4BAA4B,EAAE,MAAM,gCAAgC,CAAC;AAEnF,MAAM,WAAW,iBAAiB;IAChC,QAAQ,EAAE,MAAM,CAAC;IACjB,WAAW,EAAE,4BAA4B,CAAC;IAC1C,UAAU,EAAE,MAAM,EAAE,CAAC;IACrB,YAAY,EAAE,MAAM,CAAC;IACrB,UAAU,EAAE,MAAM,CAAC;CACpB"}

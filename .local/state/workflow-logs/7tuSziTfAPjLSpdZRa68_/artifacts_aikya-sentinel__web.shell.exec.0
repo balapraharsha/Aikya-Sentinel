@@ -1,0 +1,494 @@
+
+> @workspace/aikya-sentinel@0.0.0 dev /home/runner/workspace/artifacts/aikya-sentinel
+> vite --config vite.config.ts --host 0.0.0.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J
+  [32m[1mVITE[22m v7.3.3[39m  [2mready in [0m[1m252[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m19831[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.24.0.2:[1m19831[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m12:20:40 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Cannot apply unknown utility class `dark`
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+[2m12:20:40 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot apply unknown utility class `dark`[39m
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+      at onInvalidCandidate (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:1511)
+      at $e (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:16:38457)
+      at file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:355
+      at $r (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1733)
+      at I (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1377)
+      at Ce (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:172)
+      at Hi (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:294)
+      at async ma (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:631)
+      at async wf (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:1406)
+      at async su (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+node@4.3.0/node_modules/@tailwindcss/node/dist/index.mjs:10:3457)
+      at async _.generate (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:5621)
+      at async TransformPluginContext.handler (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:3103)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot apply unknown utility class `dark`[39m
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+      at onInvalidCandidate (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:1511)
+      at $e (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:16:38457)
+      at file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:355
+      at $r (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1733)
+      at I (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1377)
+      at Ce (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:172)
+      at Hi (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:294)
+      at async ma (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:631)
+      at async wf (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:1406)
+      at async su (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+node@4.3.0/node_modules/@tailwindcss/node/dist/index.mjs:10:3457)
+      at async _.generate (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:5621)
+      at async TransformPluginContext.handler (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:3103)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20) [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+      at TransformPluginContext._formatLog (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29019:43)
+      at TransformPluginContext.error (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29016:14)
+      at normalizeUrl (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27139:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27197:32
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27165:4)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+[2m12:20:41 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mreact-dom/client, wouter, @tanstack/react-query, lucide-react, recharts, date-fns, @radix-ui/react-tooltip, @radix-ui/react-toast, class-variance-authority, @radix-ui/react-slot, @radix-ui/react-avatar, @radix-ui/react-label, @radix-ui/react-select, @radix-ui/react-scroll-area, clsx, tailwind-merge, @radix-ui/react-separator, @radix-ui/react-dialog[32m[39m
+[2m12:20:41 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m12:20:42 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Cannot apply unknown utility class `dark`
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+[2m12:20:42 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:42 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot apply unknown utility class `dark`[39m
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+      at onInvalidCandidate (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:1511)
+      at $e (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:16:38457)
+      at file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:355
+      at $r (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1733)
+      at I (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1377)
+      at Ce (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:172)
+      at Hi (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:294)
+      at async ma (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:631)
+      at async wf (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:1406)
+      at async su (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+node@4.3.0/node_modules/@tailwindcss/node/dist/index.mjs:10:3457)
+      at async _.generate (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:5621)
+      at async TransformPluginContext.handler (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:3103)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:42 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+      at TransformPluginContext._formatLog (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29019:43)
+      at TransformPluginContext.error (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29016:14)
+      at normalizeUrl (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27139:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27197:32
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27165:4)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:43 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot apply unknown utility class `dark`[39m
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+      at onInvalidCandidate (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:1511)
+      at $e (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:16:38457)
+      at file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:355
+      at $r (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1733)
+      at I (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1377)
+      at Ce (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:172)
+      at Hi (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:294)
+      at async ma (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:631)
+      at async wf (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:1406)
+      at async su (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+node@4.3.0/node_modules/@tailwindcss/node/dist/index.mjs:10:3457)
+      at async _.generate (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:5621)
+      at async TransformPluginContext.handler (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:3103)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:43 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m12:20:43 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+[2m12:20:43 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Cannot apply unknown utility class `dark`
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:43 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot apply unknown utility class `dark`[39m
+  Plugin: [35m@tailwindcss/vite:generate:serve[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/index.css[39m
+      at onInvalidCandidate (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:1511)
+      at $e (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:16:38457)
+      at file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:355
+      at $r (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1733)
+      at I (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:3:1377)
+      at Ce (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:21:172)
+      at Hi (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:294)
+      at async ma (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:631)
+      at async wf (file:///home/runner/workspace/node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss/dist/lib.mjs:38:1406)
+      at async su (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+node@4.3.0/node_modules/@tailwindcss/node/dist/index.mjs:10:3457)
+      at async _.generate (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:5621)
+      at async TransformPluginContext.handler (file:///home/runner/workspace/node_modules/.pnpm/@tailwindcss+vite@4.3.0_vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4_/node_modules/@tailwindcss/vite/dist/index.mjs:1:3103)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:43 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+      at TransformPluginContext._formatLog (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29019:43)
+      at TransformPluginContext.error (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29016:14)
+      at normalizeUrl (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27139:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27197:32
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27165:4)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:20:44 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-markdown" from "src/pages/copilot.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36m/home/runner/workspace/artifacts/aikya-sentinel/src/pages/copilot.tsx[39m:8:26
+[33m  9  |  import { ScrollArea } from "@/components/ui/scroll-area";
+  10 |  import { Bot, User, Send, Link as LinkIcon, Loader2 } from "lucide-react";
+  11 |  import ReactMarkdown from "react-markdown";
+     |                             ^
+  12 |  export default function Copilot() {
+  13 |    _s();[39m
+      at TransformPluginContext._formatLog (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29019:43)
+      at TransformPluginContext.error (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:29016:14)
+      at normalizeUrl (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27139:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27197:32
+      at async Promise.all (index 8)
+      at async TransformPluginContext.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27165:4)
+      at async EnvironmentPluginContainer.transform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28817:14)
+      at async loadAndTransform (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22686:26)
+      at async viteTransformMiddleware (file:///home/runner/workspace/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:24562:20) [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m12:21:14 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[41m[30m ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL [39m[49m [31m@workspace/aikya-sentinel@0.0.0 dev: `vite --config vite.config.ts --host 0.0.0.0`[39m
+[31mCommand failed with signal "SIGTERM"[39m

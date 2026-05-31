@@ -1,0 +1,1 @@
+{"version":3,"file":"timelineResult.d.ts","sourceRoot":"","sources":["../../../src/generated/types/timelineResult.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,iBAAiB,CAAC;AAErD,MAAM,WAAW,cAAc;IAC7B,QAAQ,EAAE,MAAM,CAAC;IACjB,UAAU,EAAE,MAAM,CAAC;IACnB,MAAM,EAAE,aAAa,EAAE,CAAC;IACxB,UAAU,EAAE,MAAM,CAAC;CACpB"}
