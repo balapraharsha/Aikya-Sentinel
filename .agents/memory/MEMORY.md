@@ -1,0 +1,3 @@
+- [Aikya Sentinel auth wiring](aikya-sentinel-auth.md) — JWT stored in localStorage; `setAuthTokenGetter` from custom-fetch wires it into all generated hooks globally
+- [DB schema rebuild order](db-schema-rebuild.md) — after any DB schema change, must run `typecheck:libs` before `api-server typecheck` or TS2305 errors appear
+- [Tailwind v4 dark mode](tailwind-v4-dark.md) — `@apply dark` is invalid in Tailwind v4; use `.dark { }` CSS class blocks; never `@apply` the variant itself

@@ -3,20 +3,38 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Aikya Sentinel – Unified AI Financial Crime Intelligence & Insider Threat Early Warning System API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication operations
+  - name: users
+    description: User management
+  - name: employees
+    description: Employee management
+  - name: accounts
+    description: Account management
+  - name: transactions
+    description: Transaction management
+  - name: alerts
+    description: Alert management
+  - name: cases
+    description: Case management
+  - name: ai
+    description: AI analysis modules
+  - name: dashboard
+    description: Dashboard and analytics
+
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +42,2149 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  # Auth
+  /auth/register:
+    post:
+      operationId: register
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegisterInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthTokens"
+        "400":
+          description: Bad request
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthTokens"
+        "401":
+          description: Unauthorized
+
+  /auth/logout:
+    post:
+      operationId: logout
+      tags: [auth]
+      summary: Logout
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  /auth/refresh:
+    post:
+      operationId: refreshToken
+      tags: [auth]
+      summary: Refresh access token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RefreshTokenInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthTokens"
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current user
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  # Users
+  /users:
+    get:
+      operationId: listUsers
+      tags: [users]
+      summary: List users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+    post:
+      operationId: createUser
+      tags: [users]
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+
+  /users/{id}:
+    get:
+      operationId: getUser
+      tags: [users]
+      summary: Get user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateUser
+      tags: [users]
+      summary: Update user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserUpdate"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+    delete:
+      operationId: deleteUser
+      tags: [users]
+      summary: Delete user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: No content
+
+  # Employees
+  /employees:
+    get:
+      operationId: listEmployees
+      tags: [employees]
+      summary: List employees
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Employee"
+    post:
+      operationId: createEmployee
+      tags: [employees]
+      summary: Create employee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployeeInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+
+  /employees/{id}:
+    get:
+      operationId: getEmployee
+      tags: [employees]
+      summary: Get employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateEmployee
+      tags: [employees]
+      summary: Update employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployeeUpdate"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+    delete:
+      operationId: deleteEmployee
+      tags: [employees]
+      summary: Delete employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: No content
+
+  # Accounts
+  /accounts:
+    get:
+      operationId: listAccounts
+      tags: [accounts]
+      summary: List accounts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Account"
+    post:
+      operationId: createAccount
+      tags: [accounts]
+      summary: Create account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+
+  /accounts/{id}:
+    get:
+      operationId: getAccount
+      tags: [accounts]
+      summary: Get account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateAccount
+      tags: [accounts]
+      summary: Update account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountUpdate"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+    delete:
+      operationId: deleteAccount
+      tags: [accounts]
+      summary: Delete account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: No content
+
+  # Transactions
+  /transactions:
+    get:
+      operationId: listTransactions
+      tags: [transactions]
+      summary: List transactions
+      parameters:
+        - name: account_id
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: limit
+          in: query
+          schema:
+            type: ["integer", "null"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Transaction"
+    post:
+      operationId: createTransaction
+      tags: [transactions]
+      summary: Create transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransactionInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+
+  /transactions/{id}:
+    get:
+      operationId: getTransaction
+      tags: [transactions]
+      summary: Get transaction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        "404":
+          description: Not found
+
+  # Alerts
+  /alerts:
+    get:
+      operationId: listAlerts
+      tags: [alerts]
+      summary: List alerts
+      parameters:
+        - name: severity
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: status
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: limit
+          in: query
+          schema:
+            type: ["integer", "null"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Alert"
+    post:
+      operationId: createAlert
+      tags: [alerts]
+      summary: Create alert
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlertInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alert"
+
+  /alerts/{id}:
+    get:
+      operationId: getAlert
+      tags: [alerts]
+      summary: Get alert
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alert"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateAlert
+      tags: [alerts]
+      summary: Update alert status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlertUpdate"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Alert"
+
+  /alerts/prioritise:
+    post:
+      operationId: prioritiseAlerts
+      tags: [alerts]
+      summary: M14 - Smart Alert Prioritisation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PrioritiseAlertsInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PrioritisedAlert"
+
+  # Cases
+  /cases:
+    get:
+      operationId: listCases
+      tags: [cases]
+      summary: List cases
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Case"
+    post:
+      operationId: createCase
+      tags: [cases]
+      summary: Create case
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CaseInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Case"
+
+  /cases/{id}:
+    get:
+      operationId: getCase
+      tags: [cases]
+      summary: Get case
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Case"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateCase
+      tags: [cases]
+      summary: Update case
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CaseUpdate"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Case"
+
+  # AI Modules
+
+  # M1 - Behaviour DNA Engine
+  /behaviour/analyse:
+    post:
+      operationId: analyseBehaviour
+      tags: [ai]
+      summary: M1 - Behaviour DNA Engine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BehaviourAnalysisResult"
+
+  # M2 - Insider Threat Engine
+  /insider/analyse:
+    post:
+      operationId: analyseInsiderThreat
+      tags: [ai]
+      summary: M2 - Insider Threat Engine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InsiderThreatResult"
+
+  # M3 - Fund Flow Intelligence
+  /fundflow/analyse:
+    post:
+      operationId: analyseFundFlow
+      tags: [ai]
+      summary: M3 - Fund Flow Intelligence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FundFlowInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FundFlowResult"
+
+  # M4 - Lifestyle vs Income Risk
+  /taxrisk/analyse:
+    post:
+      operationId: analyseTaxRisk
+      tags: [ai]
+      summary: M4 - Lifestyle vs Income Risk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaxRiskResult"
+
+  # M5 - Shell/Mule Detection
+  /shell/analyse:
+    post:
+      operationId: analyseShellMule
+      tags: [ai]
+      summary: M5 - Shell/Mule Detection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ShellMuleResult"
+
+  # M6 - Collusion Detection
+  /collusion/analyse:
+    post:
+      operationId: analyseCollusion
+      tags: [ai]
+      summary: M6 - Collusion Detection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CollusionInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CollusionResult"
+
+  # M7 - Fraud Intent Prediction
+  /intent/analyse:
+    post:
+      operationId: analyseFraudIntent
+      tags: [ai]
+      summary: M7 - Fraud Intent Prediction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FraudIntentResult"
+
+  # M8 - Digital Behaviour Twin
+  /twin/analyse:
+    post:
+      operationId: analyseDigitalTwin
+      tags: [ai]
+      summary: M8 - Digital Behaviour Twin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DigitalTwinResult"
+
+  # M9 - Pattern Genome
+  /patterns/match:
+    post:
+      operationId: matchPatterns
+      tags: [ai]
+      summary: M9 - Pattern Genome
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatternMatchInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PatternMatchResult"
+
+  # M10 - Risk Radar
+  /riskradar/analyse:
+    post:
+      operationId: analyseRiskRadar
+      tags: [ai]
+      summary: M10 - Risk Radar (aggregate all module scores)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskRadarResult"
+
+  # M11 - Explainable AI
+  /xai/explain:
+    post:
+      operationId: explainDecision
+      tags: [ai]
+      summary: M11 - Explainable AI (SHAP explanations)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/XAIInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/XAIResult"
+
+  # M12 - Timeline Tracker
+  /timeline/entity/{entityId}:
+    get:
+      operationId: fetchEntityTimeline
+      tags: [ai]
+      summary: M12 - Timeline Tracker
+      parameters:
+        - name: entityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TimelineResult"
+
+  # M13 - Trust Score Engine
+  /trust/calculate:
+    post:
+      operationId: calculateTrustScore
+      tags: [ai]
+      summary: M13 - Trust Score Engine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrustScoreResult"
+
+  # M15 - Investigation Narrative Generator
+  /reports/generate:
+    post:
+      operationId: generateReport
+      tags: [ai]
+      summary: M15 - Investigation Narrative Generator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReportResult"
+
+  /reports:
+    get:
+      operationId: listReports
+      tags: [ai]
+      summary: List generated reports
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ReportResult"
+
+  # M16 - Investigator Copilot
+  /copilot/chat:
+    post:
+      operationId: copilotChat
+      tags: [ai]
+      summary: M16 - Investigator Copilot chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CopilotChatInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CopilotChatResult"
+
+  # M17 - Fraud Simulation Mode
+  /simulation/run:
+    post:
+      operationId: runSimulation
+      tags: [ai]
+      summary: M17 - Fraud Simulation Mode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SimulationInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SimulationResult"
+
+  # M18 - Risk Personality Profiling
+  /personality/analyse:
+    post:
+      operationId: analysePersonality
+      tags: [ai]
+      summary: M18 - Risk Personality Profiling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EntityAnalysisInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonalityResult"
+
+  # M19 - Adaptive Learning
+  /learning/feedback:
+    post:
+      operationId: submitLearningFeedback
+      tags: [ai]
+      summary: M19 - Adaptive Learning feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LearningFeedbackInput"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+
+  # M20 - Risk Heatmap Dashboard API
+  /dashboard/overview:
+    get:
+      operationId: getDashboardOverview
+      tags: [dashboard]
+      summary: M20 - Risk Heatmap Dashboard overview
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardOverview"
+
+  /dashboard/risk-trends:
+    get:
+      operationId: getRiskTrends
+      tags: [dashboard]
+      summary: Risk trends over time
+      parameters:
+        - name: days
+          in: query
+          schema:
+            type: ["integer", "null"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RiskTrendPoint"
+
+  /dashboard/top-risky-entities:
+    get:
+      operationId: getTopRiskyEntities
+      tags: [dashboard]
+      summary: Top risky entities
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: ["integer", "null"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RiskyEntity"
+
+  /dashboard/alert-stats:
+    get:
+      operationId: getAlertStats
+      tags: [dashboard]
+      summary: Alert statistics breakdown
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AlertStats"
+
+  /dashboard/transaction-volume:
+    get:
+      operationId: getTransactionVolume
+      tags: [dashboard]
+      summary: Transaction volume over time
+      parameters:
+        - name: days
+          in: query
+          schema:
+            type: ["integer", "null"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TransactionVolumePoint"
+
+  # Risk Scores
+  /risk-scores/{entityId}:
+    get:
+      operationId: getRiskScores
+      tags: [ai]
+      summary: Get composite risk scores for an entity
+      parameters:
+        - name: entityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskScore"
+
 components:
   schemas:
     HealthStatus:
       type: object
+      required: [status]
       properties:
         status:
           type: string
-      required:
-        - status
 
+    MessageResponse:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+
+    AuthTokens:
+      type: object
+      required: [accessToken, refreshToken, user]
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+
+    UserRegisterInput:
+      type: object
+      required: [name, email, password, role]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+          enum: [admin, compliance_officer, investigator, risk_analyst]
+
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+    RefreshTokenInput:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken:
+          type: string
+
+    User:
+      type: object
+      required: [id, name, email, role, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        createdAt:
+          type: string
+
+    UserInput:
+      type: object
+      required: [name, email, password, role]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+
+    UserUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+
+    Employee:
+      type: object
+      required: [id, employeeId, department, designation, trustScore, createdAt]
+      properties:
+        id:
+          type: integer
+        employeeId:
+          type: string
+        department:
+          type: string
+        designation:
+          type: string
+        trustScore:
+          type: number
+        riskLevel:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    EmployeeInput:
+      type: object
+      required: [employeeId, department, designation]
+      properties:
+        employeeId:
+          type: string
+        department:
+          type: string
+        designation:
+          type: string
+        trustScore:
+          type: number
+
+    EmployeeUpdate:
+      type: object
+      properties:
+        department:
+          type: string
+        designation:
+          type: string
+        trustScore:
+          type: number
+        riskLevel:
+          type: string
+
+    Account:
+      type: object
+      required: [id, accountId, customerName, kycStatus, riskScore, createdAt]
+      properties:
+        id:
+          type: integer
+        accountId:
+          type: string
+        customerName:
+          type: string
+        kycStatus:
+          type: string
+        riskScore:
+          type: number
+        accountType:
+          type: ["string", "null"]
+        balance:
+          type: ["number", "null"]
+        createdAt:
+          type: string
+
+    AccountInput:
+      type: object
+      required: [accountId, customerName, kycStatus]
+      properties:
+        accountId:
+          type: string
+        customerName:
+          type: string
+        kycStatus:
+          type: string
+        riskScore:
+          type: number
+        accountType:
+          type: string
+        balance:
+          type: number
+
+    AccountUpdate:
+      type: object
+      properties:
+        customerName:
+          type: string
+        kycStatus:
+          type: string
+        riskScore:
+          type: number
+        accountType:
+          type: string
+
+    Transaction:
+      type: object
+      required: [id, transactionId, sourceAccount, destinationAccount, amount, timestamp, status]
+      properties:
+        id:
+          type: integer
+        transactionId:
+          type: string
+        sourceAccount:
+          type: string
+        destinationAccount:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: ["string", "null"]
+        transactionType:
+          type: ["string", "null"]
+        status:
+          type: string
+        flagged:
+          type: boolean
+        timestamp:
+          type: string
+
+    TransactionInput:
+      type: object
+      required: [transactionId, sourceAccount, destinationAccount, amount]
+      properties:
+        transactionId:
+          type: string
+        sourceAccount:
+          type: string
+        destinationAccount:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        transactionType:
+          type: string
+
+    Alert:
+      type: object
+      required: [id, alertId, severity, category, status, createdAt]
+      properties:
+        id:
+          type: integer
+        alertId:
+          type: string
+        severity:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        category:
+          type: string
+        status:
+          type: string
+          enum: [OPEN, INVESTIGATING, RESOLVED, DISMISSED]
+        entityId:
+          type: ["string", "null"]
+        entityType:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        riskScore:
+          type: ["number", "null"]
+        createdAt:
+          type: string
+
+    AlertInput:
+      type: object
+      required: [alertId, severity, category]
+      properties:
+        alertId:
+          type: string
+        severity:
+          type: string
+        category:
+          type: string
+        entityId:
+          type: string
+        entityType:
+          type: string
+        description:
+          type: string
+        riskScore:
+          type: number
+
+    AlertUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+        severity:
+          type: string
+        description:
+          type: string
+
+    PrioritiseAlertsInput:
+      type: object
+      required: [alertIds]
+      properties:
+        alertIds:
+          type: array
+          items:
+            type: integer
+
+    PrioritisedAlert:
+      type: object
+      required: [alertId, severity, priorityScore, reason]
+      properties:
+        alertId:
+          type: string
+        severity:
+          type: string
+        priorityScore:
+          type: number
+        reason:
+          type: string
+
+    Case:
+      type: object
+      required: [id, caseId, status, createdAt]
+      properties:
+        id:
+          type: integer
+        caseId:
+          type: string
+        title:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        assignedTo:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [OPEN, IN_PROGRESS, CLOSED, ESCALATED]
+        priority:
+          type: ["string", "null"]
+        entityId:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    CaseInput:
+      type: object
+      required: [caseId, status]
+      properties:
+        caseId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        assignedTo:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+        entityId:
+          type: string
+
+    CaseUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        assignedTo:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+
+    EntityAnalysisInput:
+      type: object
+      required: [entityId, entityType]
+      properties:
+        entityId:
+          type: string
+        entityType:
+          type: string
+          enum: [employee, account, transaction]
+
+    BehaviourAnalysisResult:
+      type: object
+      required: [entityId, behaviourScore, riskLevel, signals, analysedAt]
+      properties:
+        entityId:
+          type: string
+        behaviourScore:
+          type: number
+        riskLevel:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        signals:
+          type: array
+          items:
+            type: string
+        anomalies:
+          type: array
+          items:
+            type: string
+        analysedAt:
+          type: string
+
+    InsiderThreatResult:
+      type: object
+      required: [entityId, insiderRisk, riskLevel, indicators, analysedAt]
+      properties:
+        entityId:
+          type: string
+        insiderRisk:
+          type: number
+        riskLevel:
+          type: string
+        indicators:
+          type: array
+          items:
+            type: string
+        analysedAt:
+          type: string
+
+    FundFlowInput:
+      type: object
+      required: [accountId]
+      properties:
+        accountId:
+          type: string
+        depth:
+          type: integer
+
+    FundFlowResult:
+      type: object
+      required: [accountId, patterns, nodes, edges, analysedAt]
+      properties:
+        accountId:
+          type: string
+        patterns:
+          type: array
+          items:
+            $ref: "#/components/schemas/FundFlowPattern"
+        nodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/GraphNode"
+        edges:
+          type: array
+          items:
+            $ref: "#/components/schemas/GraphEdge"
+        analysedAt:
+          type: string
+
+    FundFlowPattern:
+      type: object
+      required: [type, detected, confidence]
+      properties:
+        type:
+          type: string
+          enum: [circular_routing, layering, structuring, dormant_activation]
+        detected:
+          type: boolean
+        confidence:
+          type: number
+        description:
+          type: string
+
+    GraphNode:
+      type: object
+      required: [id, label, type]
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        riskScore:
+          type: ["number", "null"]
+
+    GraphEdge:
+      type: object
+      required: [source, target, amount]
+      properties:
+        source:
+          type: string
+        target:
+          type: string
+        amount:
+          type: number
+        timestamp:
+          type: ["string", "null"]
+
+    TaxRiskResult:
+      type: object
+      required: [entityId, taxRiskScore, riskLevel, lifestyle, reportedIncome, gap, analysedAt]
+      properties:
+        entityId:
+          type: string
+        taxRiskScore:
+          type: number
+        riskLevel:
+          type: string
+        lifestyle:
+          type: number
+        reportedIncome:
+          type: number
+        gap:
+          type: number
+        flags:
+          type: array
+          items:
+            type: string
+        analysedAt:
+          type: string
+
+    ShellMuleResult:
+      type: object
+      required: [entityId, isShell, isMule, confidence, indicators, analysedAt]
+      properties:
+        entityId:
+          type: string
+        isShell:
+          type: boolean
+        isMule:
+          type: boolean
+        confidence:
+          type: number
+        indicators:
+          type: array
+          items:
+            type: string
+        analysedAt:
+          type: string
+
+    CollusionInput:
+      type: object
+      required: [entityIds]
+      properties:
+        entityIds:
+          type: array
+          items:
+            type: string
+
+    CollusionResult:
+      type: object
+      required: [collusionDetected, confidence, clusters, analysedAt]
+      properties:
+        collusionDetected:
+          type: boolean
+        confidence:
+          type: number
+        clusters:
+          type: array
+          items:
+            $ref: "#/components/schemas/CollusionCluster"
+        analysedAt:
+          type: string
+
+    CollusionCluster:
+      type: object
+      required: [members, riskScore, evidence]
+      properties:
+        members:
+          type: array
+          items:
+            type: string
+        riskScore:
+          type: number
+        evidence:
+          type: array
+          items:
+            type: string
+
+    FraudIntentResult:
+      type: object
+      required: [entityId, fraudIntentScore, riskLevel, prediction, confidence, analysedAt]
+      properties:
+        entityId:
+          type: string
+        fraudIntentScore:
+          type: number
+        riskLevel:
+          type: string
+        prediction:
+          type: string
+        confidence:
+          type: number
+        factors:
+          type: array
+          items:
+            type: string
+        analysedAt:
+          type: string
+
+    DigitalTwinResult:
+      type: object
+      required: [entityId, twinProfile, deviations, anomalyScore, analysedAt]
+      properties:
+        entityId:
+          type: string
+        twinProfile:
+          type: object
+          additionalProperties: {}
+        deviations:
+          type: array
+          items:
+            type: string
+        anomalyScore:
+          type: number
+        analysedAt:
+          type: string
+
+    PatternMatchInput:
+      type: object
+      required: [entityId, patternTypes]
+      properties:
+        entityId:
+          type: string
+        patternTypes:
+          type: array
+          items:
+            type: string
+
+    PatternMatchResult:
+      type: object
+      required: [entityId, matchedPatterns, genomeSignature, analysedAt]
+      properties:
+        entityId:
+          type: string
+        matchedPatterns:
+          type: array
+          items:
+            $ref: "#/components/schemas/PatternMatch"
+        genomeSignature:
+          type: string
+        analysedAt:
+          type: string
+
+    PatternMatch:
+      type: object
+      required: [patternId, name, confidence, severity]
+      properties:
+        patternId:
+          type: string
+        name:
+          type: string
+        confidence:
+          type: number
+        severity:
+          type: string
+
+    RiskRadarResult:
+      type: object
+      required: [entityId, fraudScore, amlScore, behaviourScore, taxScore, networkScore, overallScore, tier, analysedAt]
+      properties:
+        entityId:
+          type: string
+        fraudScore:
+          type: number
+        amlScore:
+          type: number
+        behaviourScore:
+          type: number
+        taxScore:
+          type: number
+        networkScore:
+          type: number
+        overallScore:
+          type: number
+        tier:
+          type: string
+          enum: [GREEN, AMBER, RED, BLACK]
+        analysedAt:
+          type: string
+
+    XAIInput:
+      type: object
+      required: [entityId, modelType]
+      properties:
+        entityId:
+          type: string
+        modelType:
+          type: string
+
+    XAIResult:
+      type: object
+      required: [entityId, modelType, explanation, shapValues, topFeatures, analysedAt]
+      properties:
+        entityId:
+          type: string
+        modelType:
+          type: string
+        explanation:
+          type: string
+        shapValues:
+          type: object
+          additionalProperties:
+            type: number
+        topFeatures:
+          type: array
+          items:
+            $ref: "#/components/schemas/FeatureImportance"
+        analysedAt:
+          type: string
+
+    FeatureImportance:
+      type: object
+      required: [feature, importance, direction]
+      properties:
+        feature:
+          type: string
+        importance:
+          type: number
+        direction:
+          type: string
+          enum: [positive, negative]
+
+    TimelineResult:
+      type: object
+      required: [entityId, entityType, events, analysedAt]
+      properties:
+        entityId:
+          type: string
+        entityType:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/TimelineEvent"
+        analysedAt:
+          type: string
+
+    TimelineEvent:
+      type: object
+      required: [id, eventType, description, timestamp, riskImpact]
+      properties:
+        id:
+          type: string
+        eventType:
+          type: string
+        description:
+          type: string
+        timestamp:
+          type: string
+        riskImpact:
+          type: string
+          enum: [LOW, MEDIUM, HIGH, CRITICAL]
+        metadata:
+          type: object
+          additionalProperties: {}
+
+    TrustScoreResult:
+      type: object
+      required: [entityId, trustScore, trustLevel, components, analysedAt]
+      properties:
+        entityId:
+          type: string
+        trustScore:
+          type: number
+        trustLevel:
+          type: string
+          enum: [TRUSTED, MODERATE, SUSPICIOUS, UNTRUSTED]
+        components:
+          type: object
+          additionalProperties:
+            type: number
+        analysedAt:
+          type: string
+
+    ReportInput:
+      type: object
+      required: [entityId, entityType, reportType]
+      properties:
+        entityId:
+          type: string
+        entityType:
+          type: string
+        reportType:
+          type: string
+          enum: [investigation, sar, aml_summary, risk_profile]
+
+    ReportResult:
+      type: object
+      required: [reportId, entityId, reportType, narrative, findings, recommendations, generatedAt]
+      properties:
+        reportId:
+          type: string
+        entityId:
+          type: string
+        reportType:
+          type: string
+        narrative:
+          type: string
+        findings:
+          type: array
+          items:
+            type: string
+        recommendations:
+          type: array
+          items:
+            type: string
+        riskLevel:
+          type: ["string", "null"]
+        generatedAt:
+          type: string
+
+    CopilotChatInput:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
+        sessionId:
+          type: ["string", "null"]
+        context:
+          type: ["string", "null"]
+
+    CopilotChatResult:
+      type: object
+      required: [response, sessionId, sources]
+      properties:
+        response:
+          type: string
+        sessionId:
+          type: string
+        sources:
+          type: array
+          items:
+            type: string
+        suggestedActions:
+          type: array
+          items:
+            type: string
+
+    SimulationInput:
+      type: object
+      required: [scenario]
+      properties:
+        scenario:
+          type: string
+          enum: [aml, insider_threat, collusion]
+        parameters:
+          type: object
+          additionalProperties: {}
+
+    SimulationResult:
+      type: object
+      required: [scenario, simulationId, events, alertsTriggered, riskScore, summary, simulatedAt]
+      properties:
+        scenario:
+          type: string
+        simulationId:
+          type: string
+        events:
+          type: array
+          items:
+            $ref: "#/components/schemas/SimulationEvent"
+        alertsTriggered:
+          type: integer
+        riskScore:
+          type: number
+        summary:
+          type: string
+        simulatedAt:
+          type: string
+
+    SimulationEvent:
+      type: object
+      required: [step, action, entity, outcome]
+      properties:
+        step:
+          type: integer
+        action:
+          type: string
+        entity:
+          type: string
+        outcome:
+          type: string
+        riskDelta:
+          type: number
+
+    PersonalityResult:
+      type: object
+      required: [entityId, personalityType, traits, riskProfile, analysedAt]
+      properties:
+        entityId:
+          type: string
+        personalityType:
+          type: string
+        traits:
+          type: array
+          items:
+            $ref: "#/components/schemas/PersonalityTrait"
+        riskProfile:
+          type: string
+        analysedAt:
+          type: string
+
+    PersonalityTrait:
+      type: object
+      required: [trait, score, description]
+      properties:
+        trait:
+          type: string
+        score:
+          type: number
+        description:
+          type: string
+
+    LearningFeedbackInput:
+      type: object
+      required: [entityId, modelType, prediction, actualOutcome]
+      properties:
+        entityId:
+          type: string
+        modelType:
+          type: string
+        prediction:
+          type: string
+        actualOutcome:
+          type: string
+        feedback:
+          type: ["string", "null"]
+
+    RiskScore:
+      type: object
+      required: [entityId, fraudScore, amlScore, behaviourScore, taxScore, networkScore, overallScore, updatedAt]
+      properties:
+        entityId:
+          type: string
+        fraudScore:
+          type: number
+        amlScore:
+          type: number
+        behaviourScore:
+          type: number
+        taxScore:
+          type: number
+        networkScore:
+          type: number
+        overallScore:
+          type: number
+        updatedAt:
+          type: string
+
+    DashboardOverview:
+      type: object
+      required: [totalAlerts, criticalAlerts, openCases, highRiskAccounts, highRiskEmployees, totalTransactions, flaggedTransactions, riskHeatmap, recentAlerts]
+      properties:
+        totalAlerts:
+          type: integer
+        criticalAlerts:
+          type: integer
+        openCases:
+          type: integer
+        highRiskAccounts:
+          type: integer
+        highRiskEmployees:
+          type: integer
+        totalTransactions:
+          type: integer
+        flaggedTransactions:
+          type: integer
+        riskHeatmap:
+          type: array
+          items:
+            $ref: "#/components/schemas/RiskHeatmapCell"
+        recentAlerts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Alert"
+
+    RiskHeatmapCell:
+      type: object
+      required: [category, severity, count]
+      properties:
+        category:
+          type: string
+        severity:
+          type: string
+        count:
+          type: integer
+
+    RiskTrendPoint:
+      type: object
+      required: [date, overallRisk, fraudRisk, amlRisk, insiderRisk]
+      properties:
+        date:
+          type: string
+        overallRisk:
+          type: number
+        fraudRisk:
+          type: number
+        amlRisk:
+          type: number
+        insiderRisk:
+          type: number
+
+    RiskyEntity:
+      type: object
+      required: [entityId, entityType, name, riskScore, riskLevel, alertCount]
+      properties:
+        entityId:
+          type: string
+        entityType:
+          type: string
+        name:
+          type: string
+        riskScore:
+          type: number
+        riskLevel:
+          type: string
+        alertCount:
+          type: integer
+
+    AlertStats:
+      type: object
+      required: [bySeverity, byCategory, byStatus, recentTrend]
+      properties:
+        bySeverity:
+          type: object
+          additionalProperties:
+            type: integer
+        byCategory:
+          type: object
+          additionalProperties:
+            type: integer
+        byStatus:
+          type: object
+          additionalProperties:
+            type: integer
+        recentTrend:
+          type: array
+          items:
+            $ref: "#/components/schemas/AlertTrendPoint"
+
+    AlertTrendPoint:
+      type: object
+      required: [date, count, criticalCount]
+      properties:
+        date:
+          type: string
+        count:
+          type: integer
+        criticalCount:
+          type: integer
+
+    TransactionVolumePoint:
+      type: object
+      required: [date, count, totalAmount, flaggedCount]
+      properties:
+        date:
+          type: string
+        count:
+          type: integer
+        totalAmount:
+          type: number
+        flaggedCount:
+          type: integer

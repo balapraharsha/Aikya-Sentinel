@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Aikya Sentinel"
+version = "1.0.0"
+id = "artifacts/aikya-sentinel"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19831
+
+[services.development]
+run = "pnpm --filter @workspace/aikya-sentinel run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aikya-sentinel", "run", "build" ]
+publicDir = "artifacts/aikya-sentinel/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19831"
+BASE_PATH = "/"
